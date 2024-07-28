@@ -6,6 +6,7 @@ def build_connection():
     conn = sqlite3.connect('expenses.db') 
     return conn
 
+
 #function to create table
 
 def create_table():
@@ -13,14 +14,16 @@ def create_table():
     cur = conn.cursor()
 
     expense_table = """
-            CREATE IF NOT EXISTS expenses (
-            id INTEGER PRIMARY KEY,
+            CREATE TABLE IF NOT EXISTS expenses (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT NOT NULL,
             type TEXT NOT NULL,
             amount INTEGER NOT NULL,
             description TEXT
             );
         """
-    cur.execute(create_table)
+    cur.execute(expense_table)
     conn.commit()
     conn.close()
+
+create_table()
