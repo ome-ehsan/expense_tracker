@@ -16,7 +16,7 @@ def create_table():
     expense_table = """
             CREATE TABLE IF NOT EXISTS expenses (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            date TEXT NOT NULL,
+            date TEXT NOT NULL DEFAULT (datetime('now','localtime')),
             type TEXT NOT NULL,
             amount INTEGER NOT NULL,
             description TEXT
